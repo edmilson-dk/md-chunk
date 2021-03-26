@@ -1,0 +1,8 @@
+{
+  "name": "flow-scc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:edmilson-dk/flow-scc.git",
+  "author": "edmilson-dk <droidvidaboa@gmail.com>",
+  "license": "MIT"
+}
