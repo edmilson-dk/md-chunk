@@ -7,10 +7,9 @@
     "strict": true,                                 
     "esModuleInterop": true,                       
     "skipLibCheck": true,
-    "outDir": "./dist",                        
+    "outDir": "lib",                        
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true     
   },
-  "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }

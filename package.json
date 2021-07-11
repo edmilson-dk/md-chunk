@@ -1,14 +1,15 @@
 {
   "name": "flow-scc",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "scc.js",
   "description": "About Creator of statistical content, your cms in cli format and generation of html files and statistical markdown.",
   "repository": "git@github.com:edmilson-dk/flow-scc.git",
   "author": "Edmilson Jesus <droidvidaboa@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "start:dev": "npx ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "build": "rm -rf ./lib && tsc && mv ./lib/src/* ./lib && rm -rf ./lib/src && npm run build-bin",
+    "build-bin": "mv ./lib/scc.js ./lib/scc && chmod +x ./lib/scc",
+    "start:dev": "npx ts-node-dev --respawn --transpile-only src/scc.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -17,8 +18,11 @@
     "version": "npm run format",
     "postversion": "git push && git push --tags"
   },
-  "types": "dist/index.d.ts",
+  "types": "lib/scc.d.ts",
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/commander": "^2.12.2",
+    "@types/inquirer": "^7.3.3",
     "@types/node": "^16.3.1",
     "prettier": "^2.3.2",
     "ts-node-dev": "^1.1.8",
@@ -26,9 +30,17 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.3.5"
   },
+  "bin": {
+    "scc": "lib/scc.js"
+  },
   "keywords": [
     "HTML",
     "Markdown",
     "CLI"
-  ]
+  ],
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "commander": "^8.0.0",
+    "inquirer": "^8.1.1"
+  }
 }
