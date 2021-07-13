@@ -1,4 +1,6 @@
 export type FileConfigPropsType = {
-  outputHTML: string,
-  inputMarkdown: string
+  outputHTML: string;
+  inputMarkdown: string;
+  originalName: boolean;
+  deleteInput: boolean;
 }
