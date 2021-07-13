@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rm -rf ./lib && tsc && mv ./lib/src/* ./lib && rm -rf ./lib/src && npm run build-bin",
     "build-bin": "mv ./lib/scc.js ./lib/scc && chmod +x ./lib/scc",
-    "start:dev": "npx ts-node-dev --respawn --transpile-only src/scc.ts",
+    "start:dev": "npx ts-node-dev --transpile-only src/scc.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
