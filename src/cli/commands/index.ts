@@ -1,16 +1,15 @@
 import { Command } from "commander";
 
 import packageJson from "../../../package.json";
-import { convertCommand } from "./convert";
-
+import { convertAllMarkdownFilesCommand } from "./converts";
 import { initCommand } from "./init";
 
 const program = new Command();
 program.version(packageJson.version);
 
-function buildCommands() {
+function buildCommands(): Command {
   initCommand(program);
-  convertCommand(program);
+  convertAllMarkdownFilesCommand(program);
 
   return program;
 }
