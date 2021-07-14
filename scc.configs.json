@@ -2,5 +2,6 @@
 	"outputHTML": "./files/html",
 	"inputMarkdown": "./files",
 	"originalName": true,
-	"deleteInput": false
+	"deleteInput": false,
+	"filePrefix": "test-"
 }
