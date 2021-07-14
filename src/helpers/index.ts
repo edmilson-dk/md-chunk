@@ -1,4 +1,5 @@
 import { existsSync, promises } from "fs";
+import chalk from "chalk";
 
 import { mapperFileConfigs } from "../shared/mappers/config";
 import { FileConfigPropsType } from "../shared/types/config";
@@ -21,4 +22,13 @@ export async function getSccConfigsOrNull(): Promise<FileConfigPropsType | null>
   }
 
   return null;
+}
+
+export function validatePath(targetPath: string) {
+  if(!existsSync(targetPath)) {
+    console.log(
+      chalk.red(`\n❌ - Path does not exist: ${targetPath}, execute 'scc setup' to create setup tool\n`)
+    );
+    process.exit(1);
+  }
 }
