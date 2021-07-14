@@ -3,4 +3,5 @@ export type FileConfigPropsType = {
   inputMarkdown: string;
   originalName: boolean;
   deleteInput: boolean;
+  filePrefix: string;
 }

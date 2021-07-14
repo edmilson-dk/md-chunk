@@ -6,5 +6,6 @@ export function mapperFileConfigs(fileConfigs: any): FileConfigPropsType {
     outputHTML: fileConfigs.outputHTML,
     deleteInput: fileConfigs.deleteInput,
     originalName: fileConfigs.originalName,
+    filePrefix: fileConfigs.filePrefix,
   };
 }
