@@ -1,15 +1,14 @@
 import { Command } from "commander";
-import fs from "fs";
-import path from "path";
 import chalk from "chalk";
 
 import { getSccConfigsOrNull } from "../../helpers";
 import { CONSTANTS } from "../../constants";
+import { convertAllMarkdownFilesToHtml } from "../../core/converts";
 
-export function convertAllMarkdownFilesCommand(program: Command) {
+export function convertAllMarkdownFilesToHtmlCommand(program: Command) {
   program
     .command("convert:all")
-    .description("Convert all markdown files to HTML in input directory")
+    .description(CONSTANTS.commands.convertAll)
     .action(async () => {
       const fileConfigs = await getSccConfigsOrNull();
 
@@ -17,5 +16,8 @@ export function convertAllMarkdownFilesCommand(program: Command) {
         console.log(chalk.red(CONSTANTS.messages.configsFileNotCreated));
         return;
       }
+
+      convertAllMarkdownFilesToHtml(fileConfigs.inputMarkdown, fileConfigs.outputHTML);
+      console.log(chalk.green(CONSTANTS.messages.convertAllSuccess));
     });
 }
