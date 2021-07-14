@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import chalk from "chalk";
 
-import { getSccConfigsOrNull } from "../../helpers";
+import { getSccConfigsOrNull, validatePath } from "../../helpers";
 import { CONSTANTS } from "../../constants";
 import { convertAllMarkdownFilesToHtml } from "../../core/converts";
 
@@ -17,7 +17,14 @@ export function convertAllMarkdownFilesToHtmlCommand(program: Command) {
         return;
       }
 
-      convertAllMarkdownFilesToHtml(fileConfigs.inputMarkdown, fileConfigs.outputHTML);
+      validatePath(fileConfigs.outputHTML);
+
+      convertAllMarkdownFilesToHtml({
+        inputPath: fileConfigs.inputMarkdown,
+        outputPath: fileConfigs.outputHTML,
+        filePrefix: fileConfigs.filePrefix,
+        originalName: fileConfigs.originalName,
+      });
       console.log(chalk.green(CONSTANTS.messages.convertAllSuccess));
     });
 }
