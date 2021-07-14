@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import fs from "fs";
+import { promises } from "fs";
 import path from "path";
 import chalk from "chalk";
 
@@ -9,10 +9,10 @@ export function initCommand(program: Command) {
   program
     .command("init")
     .description(CONSTANTS.commands.initCommandDescription)
-    .action(() => {
+    .action(async () => {
       const wirteFilePath = path.join(__dirname, "..", "..", "..", CONSTANTS.fileConfigsNameDefault);
 
-      fs.writeFileSync(
+      await promises.writeFile(
         wirteFilePath,
         JSON.stringify(CONSTANTS.fullConfigFile, null, "\t"));
 
