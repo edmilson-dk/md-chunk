@@ -3,4 +3,5 @@ export const fullConfigFile = {
   inputMarkdown: "",
   originalName: true,
   deleteInput: false,
+  filePrefix: "",
 };
