@@ -4,6 +4,7 @@ import path from "path";
 import chalk from "chalk";
 
 import { CONSTANTS } from "../../constants";
+import { getSccConfigsOrNull, handleCreateConfigsFolders } from "../../helpers";
 
 export function initCommand(program: Command) {
   program
@@ -17,5 +18,23 @@ export function initCommand(program: Command) {
         JSON.stringify(CONSTANTS.fullConfigFile, null, "\t"));
 
       console.log(chalk.green(CONSTANTS.messages.configsFileCreated));
+    });
+}
+
+export function setupCommand(program: Command) {
+  program
+    .command("setup")
+    .description(CONSTANTS.commands.setupCommandDescription)
+    .action(async () => {
+      const fileConfigs = await getSccConfigsOrNull();
+
+      if(!fileConfigs) {
+        console.log(chalk.red(CONSTANTS.messages.configsFileNotCreated));
+        return;
+      }
+
+      handleCreateConfigsFolders([
+        fileConfigs.outputHTML,
+      ]);
     });
 }
