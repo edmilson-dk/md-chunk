@@ -22,7 +22,11 @@
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/commander": "^2.12.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/highlight.js": "^10.1.0",
     "@types/inquirer": "^7.3.3",
+    "@types/markdown-it": "^12.0.3",
     "@types/node": "^16.3.1",
     "prettier": "^2.3.2",
     "ts-node-dev": "^1.1.8",
@@ -41,7 +45,11 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "highlight.js": "^11.1.0",
     "inquirer": "^8.1.1",
+    "markdown-it": "^12.1.0",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "remark-preset-lint-recommended": "^5.0.0"
