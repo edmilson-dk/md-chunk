@@ -1,7 +1,17 @@
 {
-	"outputHTML": "./files/html",
-	"inputMarkdown": "./files",
+	"outputHTML": [
+		{
+			"saveToKey": "",
+			"saveToPath": ""
+		}
+	],
+	"inputMarkdown": [
+		{
+			"saveToKey": "",
+			"inputMarkdownPath": ""
+		}
+	],
 	"originalName": true,
 	"deleteInput": false,
-	"filePrefix": "test-"
+	"filePrefix": ""
 }

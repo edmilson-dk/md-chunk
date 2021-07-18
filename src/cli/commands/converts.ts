@@ -12,7 +12,7 @@ export function convertAllMarkdownFilesToHtmlCommand(program: Command) {
     .action(async () => {
       const fileConfigs = await getSccConfigsOrNull();
 
-      if(!fileConfigs) {
+      if (!fileConfigs) {
         console.log(chalk.red(CONSTANTS.messages.configsFileNotCreated));
         return;
       }
