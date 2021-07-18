@@ -1,7 +1,7 @@
 import { Command } from "commander";
 
 import packageJson from "../../../package.json";
-import { convertAllMarkdownFilesToHtmlCommand } from "./converts";
+import { markdownToHtmlCommand } from "./converts";
 import { initCommand, setupCommand } from "./init";
 import { startServerCommand } from "./server";
 
@@ -10,7 +10,7 @@ program.version(packageJson.version);
 
 function buildCommands(): Command {
   initCommand(program);
-  convertAllMarkdownFilesToHtmlCommand(program);
+  markdownToHtmlCommand(program);
   setupCommand(program);
   // startServerCommand(program);
 
