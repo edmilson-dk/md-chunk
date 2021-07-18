@@ -7,7 +7,7 @@ import { FileConfigPropsType } from "../shared/types/config";
 export function handleCreateConfigsFolders(foldersPaths: string[]) {
   foldersPaths.forEach(async folderPath => {
     if (!existsSync(folderPath)) {
-      await promises.mkdir(folderPath);
+      await promises.mkdir(folderPath, { recursive: true });
     }
   });
 }
