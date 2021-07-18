@@ -1,6 +1,16 @@
 export const fullConfigFile = {
-  outputHTML: "",
-  inputMarkdown: "",
+  outputHTML: [
+    {
+      saveToKey: "",
+      saveToPath: "",
+    },
+  ],
+  inputMarkdown: [
+    {
+      saveToKey: "",
+      inputMarkdownPath: "",
+    }
+  ],
   originalName: true,
   deleteInput: false,
   filePrefix: "",
