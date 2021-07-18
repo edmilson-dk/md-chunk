@@ -51,13 +51,5 @@ export function markdownToHtmlCommand(program: Command) {
           console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
         }
       });
-
-      // convertAllMarkdownFilesToHtml({
-      //   inputPath: inputMarkdown,
-      //   outputPath: outputHTML,
-      //   filePrefix: filePrefix,
-      //   originalName: originalName,
-      // });
-      // console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
     });
 }
