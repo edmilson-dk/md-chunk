@@ -12,7 +12,7 @@ function buildCommands(): Command {
   initCommand(program);
   convertAllMarkdownFilesToHtmlCommand(program);
   setupCommand(program);
-  startServerCommand(program);
+  // startServerCommand(program);
 
   return program;
 }
