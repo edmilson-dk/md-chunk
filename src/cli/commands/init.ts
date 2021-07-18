@@ -28,13 +28,17 @@ export function setupCommand(program: Command) {
     .action(async () => {
       const fileConfigs = await getSccConfigsOrNull();
 
-      if(!fileConfigs) {
+      if (!fileConfigs) {
         console.log(chalk.red(CONSTANTS.messages.configsFileNotCreated));
         return;
       }
 
-      handleCreateConfigsFolders([
-        fileConfigs.outputHTML,
-      ]);
+      fileConfigs.outputHTML.forEach((htmlConfig) => {
+        handleCreateConfigsFolders([htmlConfig.saveToPath]);
+      });
+
+      fileConfigs.inputMarkdown.forEach((mdConfig) => {
+        handleCreateConfigsFolders([mdConfig.inputMarkdownPath]);
+      });
     });
 }
