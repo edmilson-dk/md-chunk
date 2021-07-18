@@ -17,14 +17,47 @@ export function markdownToHtmlCommand(program: Command) {
         return;
       }
 
-      // validatePath(fileConfigs.outputHTML);
+      const { inputMarkdown, outputHTML, filePrefix, originalName } = fileConfigs;
+
+      outputHTML.forEach(htmlConfigs => {
+        validatePath(htmlConfigs.saveToPath);
+      });
+      inputMarkdown.forEach(mdConfigs => {
+        validatePath(mdConfigs.inputMarkdownPath);
+      });
+
+      const setupFilesPaths = inputMarkdown.map((mdConfigs, index) => {
+        const htmlConfigs = outputHTML[index] ? outputHTML[index].saveToKey : null;
+
+        if (mdConfigs.saveToKey === htmlConfigs) {
+          return {
+            mdInputPath: mdConfigs.inputMarkdownPath,
+            htmlSaveToPath: outputHTML[index].saveToPath
+          };
+        }
+
+        return null;
+      });
+
+      setupFilesPaths.forEach(setupFilesPath => {
+        if (setupFilesPath) {
+          convertAllMarkdownFilesToHtml({
+            inputPath: setupFilesPath.mdInputPath,
+            outputPath: setupFilesPath.htmlSaveToPath,
+            filePrefix,
+            originalName,
+          });
+
+          console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
+        }
+      });
 
       // convertAllMarkdownFilesToHtml({
-      //   inputPath: fileConfigs.inputMarkdown,
-      //   outputPath: fileConfigs.outputHTML,
-      //   filePrefix: fileConfigs.filePrefix,
-      //   originalName: fileConfigs.originalName,
+      //   inputPath: inputMarkdown,
+      //   outputPath: outputHTML,
+      //   filePrefix: filePrefix,
+      //   originalName: originalName,
       // });
-      console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
+      // console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
     });
 }
