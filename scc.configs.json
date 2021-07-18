@@ -1,14 +1,26 @@
 {
 	"outputHTML": [
 		{
-			"saveToKey": "",
-			"saveToPath": ""
+			"saveToKey": "01",
+			"saveToPath": "./files/html/01"
+		},
+		{
+			"saveToKey": "02",
+			"saveToPath": "./files/html/02"
 		}
 	],
 	"inputMarkdown": [
 		{
-			"saveToKey": "",
-			"inputMarkdownPath": ""
+			"saveToKey": "01",
+			"inputMarkdownPath": "./files/to01"
+		},
+		{
+			"saveToKey": "02",
+			"inputMarkdownPath": "./files/to02"
+		},
+		{
+			"saveToKey": "03",
+			"inputMarkdownPath": "./files/to03"
 		}
 	],
 	"originalName": true,
