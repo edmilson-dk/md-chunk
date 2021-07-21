@@ -8,7 +8,7 @@ import hljs from "highlight.js";
 
 import { renderHtmlBaseTemplate } from "../helpers";
 
-const md = new MarkdownIt({
+const md: MarkdownIt = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,

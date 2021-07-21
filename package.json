@@ -1,15 +1,15 @@
 {
-  "name": "flow-scc",
+  "name": "md-chunk",
   "version": "0.1.0",
-  "main": "scc.js",
-  "description": "About Creator of statistical content, your cms in cli format and generation of html files and statistical markdown.",
-  "repository": "git@github.com:edmilson-dk/flow-scc.git",
+  "main": "bin.js",
+  "description": "Markdown to html converter via command line with built-in editor and conversion settings.",
+  "repository": "git@github.com:edmilson-dk/md-chunk.git",
   "author": "Edmilson Jesus <droidvidaboa@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf ./lib && tsc && mv ./lib/src/* ./lib && rm -rf ./lib/src && npm run build-bin",
-    "build-bin": "mv ./lib/scc.js ./lib/scc && chmod +x ./lib/scc",
-    "start:dev": "npx ts-node-dev --transpile-only src/scc.ts",
+    "build-bin": "mv ./lib/bin.js ./lib/bin && chmod +x ./lib/bin",
+    "start:dev": "npx ts-node-dev --transpile-only src/bin.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -18,7 +18,7 @@
     "version": "npm run format",
     "postversion": "git push && git push --tags"
   },
-  "types": "lib/scc.d.ts",
+  "types": "lib/bin.d.ts",
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/commander": "^2.12.2",
@@ -35,7 +35,7 @@
     "typescript": "^4.3.5"
   },
   "bin": {
-    "scc": "lib/scc.js"
+    "bin": "lib/bin.js"
   },
   "keywords": [
     "HTML",
