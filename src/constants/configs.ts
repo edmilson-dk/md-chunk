@@ -11,6 +11,12 @@ export const fullConfigFile = {
       inputMarkdownPath: "",
     }
   ],
+  inputBaseHtml: [
+    {
+      saveToKey: "",
+      inputBaseHTMLPath: "",
+    }
+  ],
   originalName: true,
   deleteInput: false,
   filePrefix: "",
