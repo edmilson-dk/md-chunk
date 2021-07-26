@@ -22,7 +22,7 @@ const md: MarkdownIt = new MarkdownIt({
         </code></pre>
         `;
 
-        return htmlCode;;
+        return htmlCode;
       } catch (__) { }
     }
 
