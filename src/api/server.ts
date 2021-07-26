@@ -30,7 +30,12 @@ const md: MarkdownIt = new MarkdownIt({
   }
 });
 
+function getUserName() {
+  return "name";
+}
+
 const app = express();
+getUserName();
 
 app.use(cors());
 
