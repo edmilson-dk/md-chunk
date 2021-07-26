@@ -8,9 +8,15 @@ export type FileConfigInputMarkdownPropsType = {
   inputMarkdownPath: string;
 };
 
+export type FileConfigInputBaseHtmlPropsType = {
+  saveToKey: string;
+  inputBaseHTMLPath: string;
+};
+
 export type FileConfigPropsType = {
   outputHTML: FileConfigSaveHtmlToPropsType[];
   inputMarkdown: FileConfigInputMarkdownPropsType[];
+  inputBaseHTML: FileConfigInputBaseHtmlPropsType[];
   originalName: boolean;
   deleteInput: boolean;
   filePrefix: string;
