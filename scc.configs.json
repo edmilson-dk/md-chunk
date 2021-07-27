@@ -1,14 +1,21 @@
 {
 	"outputHTML": [
 		{
-			"saveToKey": "",
-			"saveToPath": ""
+			"saveToKey": "01",
+			"saveToPath": "files/html",
+			"useBaseHTML": true
 		}
 	],
 	"inputMarkdown": [
 		{
-			"saveToKey": "",
-			"inputMarkdownPath": ""
+			"saveToKey": "01",
+			"inputMarkdownPath": "files/to01"
+		}
+	],
+	"inputBaseHTML": [
+		{
+			"saveToKey": "01",
+			"inputBaseHTMLPath": "files/input-base"
 		}
 	],
 	"originalName": true,
