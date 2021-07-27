@@ -24,7 +24,12 @@ export async function getSccConfigsOrNull(): Promise<FileConfigPropsType | null>
   return null;
 }
 
-export function validatePath(targetPath: string) {
+export async function getBaseHtmlTemplateContent(filePath: string): Promise<string> {
+  const fileContent = await promises.readFile(filePath, "utf8");
+  return fileContent;
+}
+
+export function validatePath(targetPath: string): void {
   if (!existsSync(targetPath)) {
     console.log(
       chalk.red(`\n❌ - Path does not exist: ${targetPath}, execute 'scc setup' to create setup tool\n`)
