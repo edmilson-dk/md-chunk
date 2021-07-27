@@ -17,7 +17,7 @@ export function markdownToHtmlCommand(program: Command) {
         return;
       }
 
-      const { inputMarkdown, outputHTML, filePrefix, originalName } = fileConfigs;
+      const { inputMarkdown, outputHTML, inputBaseHTML } = fileConfigs;
 
       outputHTML.forEach(htmlConfigs => {
         validatePath(htmlConfigs.saveToPath);
@@ -28,28 +28,46 @@ export function markdownToHtmlCommand(program: Command) {
 
       const setupFilesPaths = inputMarkdown.map((mdConfigs, index) => {
         const htmlConfigs = outputHTML[index] ? outputHTML[index].saveToKey : null;
+        const useBaseHTML = outputHTML[index] ? outputHTML[index].useBaseHTML : false;
+        const baseConfigs = inputBaseHTML[index] ? inputBaseHTML[index].saveToKey : null;
 
-        if (mdConfigs.saveToKey === htmlConfigs) {
-          return {
-            mdInputPath: mdConfigs.inputMarkdownPath,
-            htmlSaveToPath: outputHTML[index].saveToPath
-          };
+        const defaultValidation = mdConfigs.saveToKey === htmlConfigs;
+        const withBaseHTMLValidation = baseConfigs !== null
+          && (htmlConfigs === baseConfigs)
+          && (mdConfigs.saveToKey === baseConfigs);
+
+        if (useBaseHTML) {
+          if (defaultValidation && withBaseHTMLValidation) {
+            return {
+              mdInputPath: mdConfigs.inputMarkdownPath,
+              htmlSaveToPath: outputHTML[index].saveToPath,
+              baseInputPath: inputBaseHTML[index].inputBaseHTMLPath
+            };
+          }
+        } else {
+          if (defaultValidation) {
+            return {
+              mdInputPath: mdConfigs.inputMarkdownPath,
+              htmlSaveToPath: outputHTML[index].saveToPath
+            };
+          }
         }
 
         return null;
       });
 
-      setupFilesPaths.forEach(setupFilesPath => {
-        if (setupFilesPath) {
-          convertAllMarkdownFilesToHtml({
-            inputPath: setupFilesPath.mdInputPath,
-            outputPath: setupFilesPath.htmlSaveToPath,
-            filePrefix,
-            originalName,
-          });
+      console.log(setupFilesPaths);
+      // setupFilesPaths.forEach(setupFilesPath => {
+      //   if (setupFilesPath) {
+      //     convertAllMarkdownFilesToHtml({
+      //       inputPath: setupFilesPath.mdInputPath,
+      //       outputPath: setupFilesPath.htmlSaveToPath,
+      //       filePrefix,
+      //       originalName,
+      //     });
 
-          console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
-        }
-      });
+      //     console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
+      //   }
+      // });
     });
 }
