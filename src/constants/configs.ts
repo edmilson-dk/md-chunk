@@ -3,6 +3,7 @@ export const fullConfigFile = {
     {
       saveToKey: "",
       saveToPath: "",
+      useBaseHTML: false
     },
   ],
   inputMarkdown: [
@@ -11,7 +12,7 @@ export const fullConfigFile = {
       inputMarkdownPath: "",
     }
   ],
-  inputBaseHTMl: [
+  inputBaseHTML: [
     {
       saveToKey: "",
       inputBaseHTMLPath: "",

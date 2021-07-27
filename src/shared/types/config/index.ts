@@ -1,6 +1,7 @@
 export type FileConfigSaveHtmlToPropsType = {
   saveToKey: string;
   saveToPath: string;
+  useBaseHTML: boolean;
 };
 
 export type FileConfigInputMarkdownPropsType = {
