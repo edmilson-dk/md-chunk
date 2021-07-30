@@ -17,7 +17,7 @@ export function markdownToHtmlCommand(program: Command) {
         return;
       }
 
-      const { inputMarkdown, outputHTML, inputBaseHTML } = fileConfigs;
+      const { inputMarkdown, outputHTML, inputBaseHTML, originalName, filePrefix } = fileConfigs;
 
       outputHTML.forEach(htmlConfigs => {
         validatePath(htmlConfigs.saveToPath);
@@ -57,17 +57,19 @@ export function markdownToHtmlCommand(program: Command) {
       });
 
       console.log(setupFilesPaths);
-      // setupFilesPaths.forEach(setupFilesPath => {
-      //   if (setupFilesPath) {
-      //     convertAllMarkdownFilesToHtml({
-      //       inputPath: setupFilesPath.mdInputPath,
-      //       outputPath: setupFilesPath.htmlSaveToPath,
-      //       filePrefix,
-      //       originalName,
-      //     });
+      setupFilesPaths.forEach(setupFilesPath => {
+        if (setupFilesPath) {
+          convertAllMarkdownFilesToHtml({
+            inputPath: setupFilesPath.mdInputPath,
+            outputPath: setupFilesPath.htmlSaveToPath,
+            filePrefix,
+            originalName,
+            baseInputPath: setupFilesPath.baseInputPath || "",
+            useBaseHTML: setupFilesPath.baseInputPath ? true : false
+          });
 
-      //     console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
-      //   }
-      // });
+          console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
+        }
+      });
     });
 }
