@@ -33,7 +33,7 @@ function convertMarkdownFileToHtmlNotBaseHtml({
   const fileContent = fs.readFileSync(filePath, "utf8");
   const convertedContent = convertMarkdownFileToHtml(fileContent);
 
-  // fs.writeFileSync(saveFilePath, convertedContent);
+  fs.writeFileSync(saveFilePath, convertedContent);
 }
 
 function convertMarkdownFileToHtmlWithBaseHtml({
@@ -59,8 +59,8 @@ function convertMarkdownFileToHtmlWithBaseHtml({
 
   const convertedContent = convertMarkdownFileToHtml(fileContent);
   const baseHtmlConvertedContent = baseHtmlContent.replace(/<!--\s*BASE_HTML_CONTENT_PLACEHOLDER\s*-->/g, convertedContent);
-  console.log(baseHtmlConvertedContent);
-  // fs.writeFileSync(saveFilePath, convertedContent);
+
+  fs.writeFileSync(saveFilePath, baseHtmlConvertedContent);
 }
 
 export async function convertAllMarkdownFilesToHtml({
