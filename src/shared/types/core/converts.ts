@@ -1,4 +1,4 @@
-export type convertAllMarkdownFilesToHtmlProps = {
+export type ConvertAllMarkdownFilesToHtmlProps = {
   inputPath: string;
   outputPath: string;
   originalName: boolean;
@@ -7,17 +7,13 @@ export type convertAllMarkdownFilesToHtmlProps = {
   baseInputPath: string;
 };
 
-export type convertAllMarkdownFilesToHtmlNoBaseHtmlProps = Omit<
-  convertAllMarkdownFilesToHtmlProps,
-  "useBaseHTML" | "baseInputPath"
-> & {
-  file: string;
+export type ConvertAllMarkdownFilesToHtmlNoBaseHtmlProps = {
+  fileContent: string;
+  saveFilePath: string;
 };
 
-export type convertAllMarkdownFilesToHtmlWithBaseHtmlProps = Omit<
-  convertAllMarkdownFilesToHtmlProps,
-  "useBaseHTML" | "baseInputPath"
-> & {
-  file: string;
+export type ConvertAllMarkdownFilesToHtmlWithBaseHtmlProps = {
+  saveFilePath: string;
+  fileContent: string;
   baseInputPath: string;
 };

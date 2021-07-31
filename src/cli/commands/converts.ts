@@ -56,7 +56,6 @@ export function markdownToHtmlCommand(program: Command) {
         return null;
       });
 
-      console.log(setupFilesPaths);
       setupFilesPaths.forEach(setupFilesPath => {
         if (setupFilesPath) {
           convertAllMarkdownFilesToHtml({

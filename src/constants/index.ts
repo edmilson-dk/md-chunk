@@ -6,5 +6,6 @@ export const CONSTANTS = {
   fileConfigsNameDefault: "scc.configs.json",
   commands,
   fullConfigFile,
-  messages
+  messages,
+  baseHtmlFlagRegex: /<!--\s*BASE_HTML_CONTENT_PLACEHOLDER\s*-->/g
 };
