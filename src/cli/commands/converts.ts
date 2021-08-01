@@ -56,9 +56,9 @@ export function markdownToHtmlCommand(program: Command) {
         return null;
       });
 
-      setupFilesPaths.forEach(setupFilesPath => {
+      setupFilesPaths.forEach(async (setupFilesPath, index) => {
         if (setupFilesPath) {
-          convertAllMarkdownFilesToHtml({
+          await convertAllMarkdownFilesToHtml({
             inputPath: setupFilesPath.mdInputPath,
             outputPath: setupFilesPath.htmlSaveToPath,
             filePrefix,
@@ -70,6 +70,7 @@ export function markdownToHtmlCommand(program: Command) {
           console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
           console.log(chalk.gray(` Input markdowns - ${setupFilesPath.mdInputPath}`));
           console.log(chalk.gray(` Output HTML - ${setupFilesPath.htmlSaveToPath}`));
+
         }
       });
     });
