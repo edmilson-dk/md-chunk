@@ -70,7 +70,6 @@ export function markdownToHtmlCommand(program: Command) {
           console.log(chalk.green(CONSTANTS.messages.mdToHtmlSuccess));
           console.log(chalk.gray(` Input markdowns - ${setupFilesPath.mdInputPath}`));
           console.log(chalk.gray(` Output HTML - ${setupFilesPath.htmlSaveToPath}`));
-
         }
       });
     });
