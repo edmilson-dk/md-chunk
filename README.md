@@ -4,12 +4,12 @@ Markdown to html converter via command line with built-in editor and conversion 
 
 ## Features
 
-* Configure input markdown conversion and output html
-* Rename output html files
-* Automatically configure inbound and outbound folders
-* Browser view of generated html
-* Configure base html template for final htmls
-* Browser markdown editor
+* [x] Configure input markdown conversion and output html
+* [x] Rename output html files
+* [x] Automatically configure inbound and outbound folders
+* [x] Configure base html template for final htmls
+* [ ] Browser view of generated html
+* [ ] Browser markdown editor
 
 <a id="license"></a>
 ## 🤝 License
