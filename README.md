@@ -4,14 +4,13 @@ Markdown to html converter via command line with built-in editor and conversion 
 
 ## Features
 
-* [x] Configure input markdown conversion and output html
-* [x] Rename output html files
-* [x] Automatically configure inbound and outbound folders
-* [x] Configure base html template for final htmls
-* [ ] Browser view of generated html
-* [ ] Browser markdown editor
+- [x] Configure input markdown conversion and output html
+- [x] Rename output html files
+- [x] Automatically configure inbound and outbound folders
+- [x] Configure base html template for final htmls
 
 <a id="license"></a>
+
 ## 🤝 License
 
 [MIT](https://github.com/edmilson-dk/md-chunk/blob/main/LICENSE) Project License
