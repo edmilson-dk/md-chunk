@@ -30,22 +30,17 @@ const md: MarkdownIt = new MarkdownIt({
   }
 });
 
-function getUserName() {
-  return "name";
-}
 
 const app = express();
-getUserName();
 
 app.use(cors());
 
-app.use("/render", (req, res) => {
-  const filePath = path.join(__dirname, "..", "..", "files", "input-01.md");
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "./views"));
+app.use(express.static(__dirname + '/public'));
 
-  const fileC = fs.readFileSync(filePath, "utf8");
-  var result = md.render(fileC);
-
-  res.send(renderHtmlBaseTemplate(result));
+app.get('/', function(req, res) {
+  res.render('pages/index');
 });
 
 export function startServer() {
